@@ -26,6 +26,16 @@ namespace Prueba2.Controllers
                           Problem("Entity set 'MarketContext.Categoria'  is null.");
         }
 
+        [HttpGet]
+        [Route("/categorias")]
+        public async Task<IActionResult> GetCategorias()
+        {
+            var categorias = await _context.Categoria.ToListAsync();
+            return Ok(categorias);
+        }
+
+
+
         // GET: Categoria/Details/5
         public async Task<IActionResult> Details(int? id)
         {
